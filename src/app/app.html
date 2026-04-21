@@ -1,0 +1,7 @@
+@if (loading$ | async) {
+  <div class="loading-overlay">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+}
+
+<router-outlet></router-outlet>

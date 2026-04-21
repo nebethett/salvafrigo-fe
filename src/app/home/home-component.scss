@@ -1,0 +1,68 @@
+@use '../../styles/variables' as *;
+
+.container-custom {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    background-color:$color-bg;
+    height: 400px;
+    box-shadow: 0 4px 14px rgba(107, 101, 93, 0.12);
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container-inner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.login-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-social-custom {
+  border-radius: 10px;
+  padding: 10px 14px;
+  border: 1px solid $color-border;
+  font-weight: 600;
+  background-color: #FAF9F6;
+  color: $color-text;
+  transition: 0.2s ease;
+}
+
+.btn-social-custom:hover {
+  transform: translateY(-1px);
+}
+
+.btn-google {
+  background-color: white;
+}
+
+.btn-apple {
+  background-color: #2F2A26;
+  color: #FAF9F6;
+  border: 1px solid #2F2A26;
+}
