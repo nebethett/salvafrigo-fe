@@ -8,18 +8,23 @@
 
     <div class="col-12 nopadding box mt-4">
         <div class="col-4 card-custom">
+             @if (errorMessage()) {
+                <div class="alert alert-danger mb-3 col-12" role="alert">
+                {{ errorMessage() }}
+                </div>
+            }
             <div class="input-group-custom col-12">
-                <label>E-mail/Username</label>
-                <input type="text" placeholder="mariorossi@gmail.com" class="input-custom col-12">
+                <label for="username">E-mail/Username</label>
+                <input id="username" type="text" placeholder="mariorossi@gmail.com" class="input-custom col-12" [(ngModel)]="username" [class.input-error]="hasErrorAuth()">
             </div>
 
             <div class="input-group-custom col-12">
-                <label>Password</label>
-                <input type="text" placeholder="***" class="input-custom col-12">
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="***" class="input-custom col-12" [(ngModel)]="password" [class.input-error]="hasErrorAuth()">
             </div>
 
             <div class="login-actions col-12">
-                <button class="btn-primary-custom col-12" (click)="navigateToRicercaRicette()">ENTRA</button>
+                <button type="button" class="btn-primary-custom col-12" (click)="login()">ENTRA</button>
                 <button class="btn-social-custom btn-google col-12">
                     <i class="bi bi-google me-2"></i>
                     ENTRA CON GOOGLE

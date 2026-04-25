@@ -209,10 +209,6 @@ a {
   &::placeholder {
     color: rgba($color-text, 0.35);
   }
-
-  &:focus {
-    border: 1px solid darken($color-border, 8%);
-  }
 }
 
 .input-group-custom {
@@ -254,4 +250,9 @@ a {
   align-items: center;
   justify-content: center;
   z-index: 9999;
+}
+
+.input-custom.input-error {
+  border: 1px solid red !important;
+  box-shadow: none;
 }
