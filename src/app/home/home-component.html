@@ -1,41 +1,74 @@
 <div class="col-12 nopadding">
-    <div class="container-custom col-12 pt-3 mb-5">
-        <div class="container-inner col-12">
-            <img class="logo" src="/assets/images/fridge.svg">
-            <span class="col-12 text-center title">APP FRIGO</span>
+
+  <!-- ============================================ -->
+  <!-- HEADER / BRAND (no card, solo su sfondo sage) -->
+  <!-- ============================================ -->
+  <header class="brand-header col-12 text-center">
+    <img class="logo" src="/assets/images/fridge.svg" alt="CucinaAI logo" />
+    <h1 class="brand-title">CucinaAI</h1>
+    <p class="brand-subtitle">Ricette su misura per te</p>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- LOGIN CARD (centrata)                         -->
+  <!-- ============================================ -->
+  <section class="login-wrapper col-12">
+    <div class="card-soft login-card">
+
+      @if (errorMessage()) {
+        <div class="alert-custom mb-3" role="alert">
+          {{ errorMessage() }}
         </div>
+      }
+
+      <!-- Email -->
+      <div class="input-group-custom">
+        <label for="username">E-mail / Username</label>
+        <input
+          id="username"
+          type="text"
+          placeholder="mariorossi@gmail.com"
+          class="input"
+          [(ngModel)]="username"
+          [class.input-error]="hasErrorAuth()"
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="input-group-custom">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="••••••••"
+          class="input"
+          [(ngModel)]="password"
+          [class.input-error]="hasErrorAuth()"
+        />
+      </div>
+
+      <!-- Azioni -->
+      <div class="login-actions">
+        <button type="button" class="btn-primary-warm" (click)="login()">
+          ENTRA
+        </button>
+
+        <div class="divider-or">oppure</div>
+
+        <button type="button" class="btn-social-custom btn-google">
+          <i class="bi bi-google"></i>
+          ENTRA CON GOOGLE
+        </button>
+
+        <button type="button" class="btn-social-custom btn-apple">
+          <i class="bi bi-apple"></i>
+          ENTRA CON APPLE
+        </button>
+
+        <p class="register-hint">
+          Non hai un account? <a href="#">Registrati!</a>
+        </p>
+      </div>
     </div>
-
-    <div class="col-12 nopadding box mt-4">
-        <div class="col-4 card-custom">
-             @if (errorMessage()) {
-                <div class="alert alert-danger mb-3 col-12" role="alert">
-                {{ errorMessage() }}
-                </div>
-            }
-            <div class="input-group-custom col-12">
-                <label for="username">E-mail/Username</label>
-                <input id="username" type="text" placeholder="mariorossi@gmail.com" class="input-custom col-12" [(ngModel)]="username" [class.input-error]="hasErrorAuth()">
-            </div>
-
-            <div class="input-group-custom col-12">
-                <label for="password">Password</label>
-                <input id="password" type="password" placeholder="***" class="input-custom col-12" [(ngModel)]="password" [class.input-error]="hasErrorAuth()">
-            </div>
-
-            <div class="login-actions col-12">
-                <button type="button" class="btn-primary-custom col-12" (click)="login()">ENTRA</button>
-                <button class="btn-social-custom btn-google col-12">
-                    <i class="bi bi-google me-2"></i>
-                    ENTRA CON GOOGLE
-                </button>
-
-                <button class="btn-social-custom btn-apple col-12">
-                    <i class="bi bi-apple me-2"></i>
-                    ENTRA CON APPLE
-                </button>
-                <span class="mt-2">Non hai un account? <a>Registrati!</a></span>
-            </div>
-        </div>
-    </div>    
+  </section>
 </div>

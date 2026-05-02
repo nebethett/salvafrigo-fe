@@ -1,245 +1,362 @@
 @use './styles/variables' as *;
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
+// ============================================
+// FONT-FACE PROMPT
+// ============================================
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-Thin.ttf') format('truetype');           font-weight: 100; font-style: normal; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-ThinItalic.ttf') format('truetype');     font-weight: 100; font-style: italic; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-ExtraLight.ttf') format('truetype');     font-weight: 200; font-style: normal; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-ExtraLightItalic.ttf') format('truetype'); font-weight: 200; font-style: italic; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-Light.ttf') format('truetype');          font-weight: 300; font-style: normal; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-LightItalic.ttf') format('truetype');    font-weight: 300; font-style: italic; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-Regular.ttf') format('truetype');        font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-Italic.ttf') format('truetype');         font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-Medium.ttf') format('truetype');         font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-MediumItalic.ttf') format('truetype');   font-weight: 500; font-style: italic; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-SemiBold.ttf') format('truetype');       font-weight: 600; font-style: normal; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-SemiBoldItalic.ttf') format('truetype'); font-weight: 600; font-style: italic; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-Bold.ttf') format('truetype');           font-weight: 700; font-style: normal; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-BoldItalic.ttf') format('truetype');     font-weight: 700; font-style: italic; }
+@font-face { font-family: 'Prompt'; src: url('/assets/fonts/Prompt-ExtraBold.ttf') format('truetype');      font-weight: 800; font-style: normal; }
+
+// ============================================
+// RESET & BASE
+// ============================================
+* {
+  box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-ThinItalic.ttf') format('truetype');
-  font-weight: 100;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-ExtraLightItalic.ttf') format('truetype');
-  font-weight: 200;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-SemiBoldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-ExtraBoldItalic.ttf') format('truetype');
-  font-weight: 800;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Prompt';
-  src: url('/assets/fonts/Prompt-BlackItalic.ttf') format('truetype');
-  font-weight: 900;
-  font-style: italic;
-}
-
-/* uso globale */
-html,
-body {
+html, body {
+  margin: 0;
+  padding: 0;
   font-family: $font-primary;
-  background-color: $color-white-soft;
+  font-size: $font-size-body;
+  font-weight: $fw-regular;
+  line-height: $lh-normal;
   color: $color-text;
+  background-color: $color-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   min-height: 100vh;
+  background-image: $gradient-hero;
+  padding: 40px 50px 80px;
 }
 
-/* esempi */
+// ============================================
+// TIPOGRAFIA
+// ============================================
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-title;
-  font-weight: 700;
-}
-
-p, span, a, button, input, textarea {
-  font-family: $font-text;
-  font-weight: 400;
-  font-size: $font-size-caption;
-}
-
-a {
-  color: $color-accent !important;
-  cursor: pointer !important;
-  text-decoration: underline !important;
-
-  &:hover {
-    color: darken($color-accent, 8%) !important;
-  }
-}
-
-.title {
-  font-family: $font-title;
   font-weight: $fw-bold;
-  letter-spacing: 0.3rem;
-  font-size: $font-size-title;
+  letter-spacing: $ls-tight;
+  line-height: $lh-snug;
+  color: $color-text;
+  margin: 0 0 0.5em;
 }
 
-.subtitle {
-  font-family: $font-text;
-  font-weight: $fw-medium;
-  letter-spacing: 0.2rem;
-  font-size: $font-size-subtitle;
+h1 { font-size: $font-size-hero; line-height: $lh-tight; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-title; }
+h4 { font-size: $font-size-subtitle; }
+
+p, span {
+  margin: 0 0 1em;
+  color: $color-text;
 }
+
+.text-soft   { color: $color-text-soft; }
+.text-accent { color: $color-accent !important; }
 
 .caption {
-  font-family: $font-text;
-  font-weight: $fw-light;
-  letter-spacing: 0.2rem;
   font-size: $font-size-caption;
+  font-weight: $fw-semi-bold;
+  text-transform: uppercase;
+  letter-spacing: $ls-widest;
+  color: $color-text-soft;
 }
 
-.btn-primary-custom {
-  background-color: $color-accent;
+.sub-caption {
+  font-size: $font-size-sub-caption;
+  font-weight: $fw-light;
+  letter-spacing: $ls-widest;
+  color: $color-text-soft;
+}
+
+// ============================================
+// CARD / SUPERFICI
+// ============================================
+.card-soft {
+  background-color: $color-white-soft;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-soft;
+  padding: 32px;
+}
+
+.card-surface {
+  background: $gradient-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-warm;
+  padding: 32px;
+}
+
+// ============================================
+// PULSANTI
+// ============================================
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: $radius-md;
+  font-family: $font-primary;
+  font-weight: $fw-semi-bold;
+  font-size: $font-size-body;
   border: none;
-  color: white;
-  border-radius: 10px;
-  height: 50px;
-  box-shadow: 0 4px 14px rgba(107, 101, 93, 0.05);
+  cursor: pointer;
+  transition: $transition-smooth;
+  text-decoration: none;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// CTA principale (gradiente caldo)
+.btn-primary-warm {
+  @extend .btn;
+  background: $gradient-warm;
+  color: $color-on-accent;
+  padding: 16px 40px;
+  border-radius: $radius-full;
+  font-size: $font-size-subtitle;
+  box-shadow: $shadow-warm;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
+  &:active:not(:disabled) {
+    transform: scale(1);
+  }
+}
+
+// Pulsante secondario
+.btn-secondary {
+  @extend .btn;
+  background-color: $color-secondary;
+  color: $color-text;
+
+  &:hover:not(:disabled) {
+    background-color: $color-hover;
+  }
+}
+
+// Pulsante outline
+.btn-outline {
+  @extend .btn;
+  background-color: $color-white-soft;
+  color: $color-text;
+  border: 1px solid $color-border;
+
+  &:hover:not(:disabled) {
+    background-color: $color-hover;
+    border-color: $color-accent;
+  }
+}
+
+// ============================================
+// CHIP / TAG (es. ingredienti)
+// ============================================
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: $radius-full;
+  border: 2px solid $color-border;
+  background-color: $color-white-soft;
+  color: $color-text;
+  font-size: $font-size-small;
+  font-weight: $fw-medium;
+  cursor: pointer;
+  transition: $transition-smooth;
 
   &:hover {
-    background-color: darken($color-accent, 8%);
+    background-color: $color-hover;
+    border-color: $color-accent;
+  }
+
+  &.is-selected {
+    background: $gradient-warm;
+    color: $color-on-accent;
+    border-color: $color-accent;
+    box-shadow: $shadow-warm;
   }
 }
 
-.btn-secondary-custom {
-  background-color: $color-secondary;
-  border: none;
-  color: $color-text;
-  border-radius: 10px;
-  height: 50px;
-}
-
-.input-custom {
-  background-color: white;
-  border: 1px solid $color-border;
-  color: $color-text;
-  border-radius: 10px;
-  padding: 10px;
-
-  &::placeholder {
-    color: rgba($color-text, 0.35);
-  }
-}
-
-.input-group-custom {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
-
-.card-custom {
-  background-color: $color-surface;
-  border: 1px solid $color-border;
-  border-radius: 16px;
+// ============================================
+// CARD CLICCABILE (es. metodo cottura)
+// ============================================
+.method-card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   align-items: center;
-  align-content: center;
-  padding: 20px;
-  box-shadow: 0 4px 14px rgba(107, 101, 93, 0.05);
+  gap: 12px;
+  width: 300px;
+  padding: 24px;
+  border-radius: $radius-lg;
+  border: 2px solid $color-border;
+  background-color: $color-white-soft;
+  cursor: pointer;
+  text-align: center;
+  transition: $transition-smooth;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: $color-accent;
+    box-shadow: $shadow-soft;
+  }
+
+  &.is-selected {
+    background: $gradient-surface;
+    border-color: $color-accent;
+    box-shadow: $shadow-warm;
+  }
+
+  i {
+    font-size: 32px;
+    color: $color-accent;
+  }
 }
 
-.nopadding {
-    padding: 0;
+// ============================================
+// FORM
+// ============================================
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+  background-color: $color-white-soft;
+  color: $color-text;
+  font-family: $font-primary;
+  font-size: $font-size-body;
+  transition: $transition-fast;
+
+  &::placeholder {
+    color: $color-text-soft;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    box-shadow: 0 0 0 3px rgba(227, 155, 109, 0.2);
+  }
 }
 
-.separator-dashed {
-  width: 200px;
-  margin: 10px auto 26px auto;
-  border-top: 3px dashed darken($color-border, 8%);
-  border-radius: 999px;
-  opacity: 0.7;
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon {
+  width: 100%;
+  padding-left: 36px; /* spazio per l'icona */
+  border: none;
+  background: transparent;
+
+  &:focus {
+    border: none;
+    background: transparent;
+    outline: none;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #777;
+  pointer-events: none;
+}
+
+// ============================================
+// BADGE STATI
+// ============================================
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: $radius-full;
+  font-size: $font-size-caption;
+  font-weight: $fw-semi-bold;
+
+  &.badge-success { background-color: $color-success; color: $color-on-accent; }
+  &.badge-warning { background-color: $color-warning; color: $color-text; }
+  &.badge-danger  { background-color: $color-danger;  color: $color-on-accent; }
+}
+
+// ============================================
+// HERO SECTION (sfumatura calda dietro)
+// ============================================
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $gradient-hero;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// ============================================
+// ALERT
+// ============================================
+.alert-custom {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: $radius-md;
+  background-color: rgba(201, 107, 92, 0.12);
+  border: 1px solid $color-danger;
+  color: $color-danger;
+  font-size: $font-size-small;
+  font-weight: $fw-medium;
+  text-align: center;
+}
+
+// ============================================
+// UTILITIES
+// ============================================
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider {
+  height: 1px;
+  background-color: $color-border;
+  margin: 24px 0;
+  border: none;
 }
 
 .loading-overlay {
@@ -252,7 +369,24 @@ a {
   z-index: 9999;
 }
 
-.input-custom.input-error {
-  border: 1px solid red !important;
-  box-shadow: none;
+.icon-custom {
+  width: 32px;
+  height: 32px;
+  color: $color-accent;
+  fill: none;
+  stroke: currentColor;
+}
+
+.text-muted-foreground {
+  color: hsl(30 9% 39%);
+}
+
+.letter-soft{
+  letter-spacing: $ls-wide;
+  font-weight: $fw-medium;
+}
+
+.icon-big {
+  width: 40px !important;
+  height: 40px !important;
 }

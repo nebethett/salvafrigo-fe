@@ -1,68 +1,231 @@
 @use '../../styles/variables' as *;
 
-.container-custom {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 30px;
-    background-color:$color-bg;
-    height: 400px;
-    box-shadow: 0 4px 14px rgba(107, 101, 93, 0.12);
-}
-
-.box {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-}
-
-.container-inner {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
+// ============================================
+// HEADER BRAND (no card, solo testo + logo)
+// ============================================
+.brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px 16px 48px;
+  background: transparent; // <-- niente card bianca
 }
 
 .logo {
-    width: 200px;
-    height: auto;
+  width: 140px;
+  height: auto;
+  filter: drop-shadow(0 6px 16px rgba(227, 155, 109, 0.25));
+  margin-bottom: 8px;
 }
 
-.text-center {
-    text-align: center;
+.brand-title {
+  font-family: $font-title;
+  font-size: $font-size-hero;
+  font-weight: $fw-bold;
+  color: $color-text;
+  letter-spacing: $ls-tight;
+  margin: 0;
+  line-height: $lh-tight;
 }
 
+.brand-subtitle {
+  font-family: $font-primary;
+  font-size: $font-size-caption;
+  font-weight: $fw-semi-bold;
+  text-transform: uppercase;
+  letter-spacing: $ls-widest;
+  color: $color-text-soft;
+  margin: 0;
+}
+
+// ============================================
+// WRAPPER LOGIN (centratura)
+// ============================================
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;     // <-- card stretta e centrata
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px;
+  background-color: $color-white-soft;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-soft;
+}
+
+// ============================================
+// INPUT GROUP
+// ============================================
+.input-group-custom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-family: $font-primary;
+    font-size: $font-size-caption;
+    font-weight: $fw-semi-bold;
+    text-transform: uppercase;
+    letter-spacing: $ls-wide;
+    color: $color-text-soft;
+  }
+
+  .input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    background-color: #ffffff;
+    color: $color-text;
+    font-family: $font-primary;
+    font-size: $font-size-body;
+    transition: $transition-fast;
+
+    &::placeholder { color: $color-text-soft; }
+
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+      box-shadow: 0 0 0 3px rgba(227, 155, 109, 0.2);
+    }
+  }
+}
+
+.input-error {
+  border-color: $color-danger !important;
+  box-shadow: 0 0 0 3px rgba(201, 107, 92, 0.15) !important;
+}
+
+// ============================================
+// AZIONI LOGIN
+// ============================================
 .login-actions {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
+// ---------- CTA principale ----------
+.btn-primary-warm {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: $radius-full;
+  background: $gradient-warm;
+  color: $color-on-accent;
+  font-family: $font-primary;
+  font-weight: $fw-bold;
+  font-size: $font-size-body;
+  letter-spacing: $ls-wide;
+  border: none;
+  cursor: pointer;
+  box-shadow: $shadow-warm;
+  transition: $transition-smooth;
+
+  &:hover { transform: scale(1.02); }
+  &:active { transform: scale(1); }
+}
+
+// ---------- Pulsanti social ----------
 .btn-social-custom {
-  border-radius: 10px;
-  padding: 10px 14px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: $radius-md;
   border: 1px solid $color-border;
-  font-weight: 600;
-  background-color: #FAF9F6;
+  background-color: $color-white-soft;
   color: $color-text;
-  transition: 0.2s ease;
+  font-family: $font-primary;
+  font-weight: $fw-semi-bold;
+  font-size: $font-size-body;
+  letter-spacing: $ls-wide;
+  cursor: pointer;
+  transition: $transition-smooth;
+
+  i { font-size: 18px; }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: $color-accent;
+    box-shadow: $shadow-soft;
+  }
 }
 
-.btn-social-custom:hover {
-  transform: translateY(-1px);
-}
-
-.btn-google {
-  background-color: white;
-}
+.btn-google { background-color: #ffffff; }
 
 .btn-apple {
-  background-color: #2F2A26;
-  color: #FAF9F6;
-  border: 1px solid #2F2A26;
+  background-color: $color-text;
+  color: $color-white-soft;
+  border-color: $color-text;
+
+  &:hover { background-color: #3F3A36; border-color: #3F3A36; }
+}
+
+// ============================================
+// DIVIDER "oppure"
+// ============================================
+.divider-or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 4px 0;
+  color: $color-text-soft;
+  font-size: $font-size-caption;
+  text-transform: uppercase;
+  letter-spacing: $ls-wide;
+  font-weight: $fw-medium;
+  text-align: center;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: $color-border;
+  }
+}
+
+// ============================================
+// REGISTRATI
+// ============================================
+.register-hint {
+  text-align: center;
+  margin: 12px 0 0;
+  color: $color-text-soft;
+  font-size: $font-size-small;
+
+  a {
+    color: $color-accent;
+    font-weight: $fw-semi-bold;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+// ============================================
+// RESPONSIVE
+// ============================================
+@media (max-width: 480px) {
+  .brand-title { font-size: 36px; }
+  .logo { width: 110px; }
+  .login-card { padding: 24px 20px; }
 }
