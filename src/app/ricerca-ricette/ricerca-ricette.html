@@ -1,6 +1,6 @@
 <div class="col-12 mx-auto">
     <div class="flex items-center gap-2 text-accent text-sm font-semibold uppercase tracking-widest mb-4">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils-crossed h-4 w-4 icon-custom"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"></path><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"></path><path d="m2.1 21.8 6.4-6.3"></path><path d="m19 5-7 7"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils-crossed h-4 w-4 icon-custom icon-medium"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"></path><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"></path><path d="m2.1 21.8 6.4-6.3"></path><path d="m19 5-7 7"></path></svg>
         <span class="caption text-accent"> Cucina con l'IA</span>
         <div class="h1 mt-3"><span>Trasforma il tuo frigo in una </span><span class="text-accent">ricetta </span><span>deliziosa.</span></div>
     </div>
@@ -14,7 +14,7 @@
         <p>Tocca gli ingredienti per aggiungerli</p>
         <div class="input-wrapper input">
             <i class="bi bi-search search-icon"></i>
-            <input type="text" placeholder="Cerca ingrediente..." class="input-icon">
+            <input type="text" placeholder="Cerca ingrediente..." [(ngModel)]="ingredienteName" (ngModelChange)="cercaIngrediente()" class="input-icon">
         </div>
         @if (listIngredientiSelected().length > 0) {
             <div class="card-surface mt-3">
@@ -72,7 +72,7 @@
     </div>
 
     <section class="text-center mt-4">
-        <button class="btn-primary-warm letter-soft" [disabled]="!(metodo() != '' && listIngredientiSelected().length > 0)">
+        <button class="btn-primary-warm letter-soft" [disabled]="!(metodo() != '' && listIngredientiSelected().length > 0)" (click)="cercaRicette()">
             <i class="bi bi-stars"></i>Genera ricetta
         </button>
         @if (listIngredientiSelected().length == 0) {
@@ -82,4 +82,72 @@
             <p class="text-sm text-muted-foreground mt-3">Scegli un metodo di cottura</p>
         }
     </section>
+
+    @if (!ricettaDettaglio()) {
+    <div class="ricette-grid">
+        @for (ricetta of ricette(); track ricetta.id) {
+        <div class="recipe-card" (click)="apriRicetta(ricetta)">
+            <span class="eyebrow">✦ La tua ricetta</span>
+
+            <h3>{{ ricetta.titolo }}</h3>
+            <p>{{ ricetta.sottotitolo }}</p>
+
+            <div class="meta-row">
+            <div>⏱ <span>Prep</span><strong>{{ ricetta.prep_minuti }} min</strong></div>
+            <div>🔥 <span>Cottura</span><strong>{{ ricetta.cottura_minuti }} min</strong></div>
+            <div>👥 <span>Porzioni</span><strong>{{ ricetta.porzioni }}</strong></div>
+            <div>⭐ <span>Difficoltà</span><strong>{{ ricetta.difficolta }}</strong></div>
+            </div>
+        </div>
+        }
+    </div>
+    }
+
+    @if (ricettaDettaglio()) {
+    <section class="recipe-detail">
+        <button type="button" (click)="tornaAlleCard()">← Torna alle ricette</button>
+        <span class="eyebrow">✦ La tua ricetta</span>
+
+        <h1>{{ ricettaDettaglio()!.titolo }}</h1>
+        <p class="subtitle">{{ ricettaDettaglio()!.sottotitolo }}</p>
+
+        <div class="meta-row">
+        <div>⏱ <span>Prep</span><strong>{{ ricettaDettaglio()!.prep_minuti }} min</strong></div>
+        <div>🔥 <span>Cottura</span><strong>{{ ricettaDettaglio()!.cottura_minuti }} min</strong></div>
+        <div>👥 <span>Porzioni</span><strong>{{ ricettaDettaglio()!.porzioni }}</strong></div>
+        <div>⭐ <span>Difficoltà</span><strong>{{ ricettaDettaglio()!.difficolta }}</strong></div>
+        </div>
+
+        <hr />
+
+        <div class="detail-grid">
+        <div>
+            <h2>Ingredienti</h2>
+
+            @for (item of ricettaDettaglio()!.ingredienti; track item.nome) {
+            <div class="ingredient-row">
+                <span>{{ item.nome }}</span>
+                <strong>{{ item.quantita }}</strong>
+            </div>
+            }
+        </div>
+
+        <div>
+            <h2>Procedimento</h2>
+
+            @for (step of ricettaDettaglio()!.procedimento; track $index) {
+            <div class="step-row">
+                <span class="step-number">{{ $index + 1 }}</span>
+                <p>{{ step }}</p>
+            </div>
+            }
+
+            <div class="chef-tip">
+            <strong>Consiglio dello chef</strong>
+            <p>{{ ricettaDettaglio()!.consiglio_chef }}</p>
+            </div>
+        </div>
+        </div>
+    </section>
+    }
 </div>

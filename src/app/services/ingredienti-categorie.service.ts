@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { CategorieConIngredientiResponse } from '../models/ingredienti.model';
+import { CategorieConIngredientiRequest, CategorieConIngredientiResponse, RicettaDettaglio, RicettaRequest, RicettaResponse } from '../models/ingredienti.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,36 @@ export class IngredientiCategorieService {
 
   constructor(private http: HttpClient) {}
 
-  getCategorieConIngredienti(): Observable<CategorieConIngredientiResponse> {
+  getCategorieConIngredienti(input : CategorieConIngredientiRequest): Observable<CategorieConIngredientiResponse> {
     return this.http.post<CategorieConIngredientiResponse>(
         `${this.apiUrl}/getCategorieConIngredienti`,
-        null
+        input
     );
-    }
+  }
+
+  generaRicetta(input : RicettaRequest): Observable<CategorieConIngredientiResponse> {
+    return this.http.post<CategorieConIngredientiResponse>(
+        `${this.apiUrl}/getCategorieConIngredienti`,
+        input
+    );
+  }
+
+  getRicette(input: RicettaRequest) {
+    return this.http.post<RicettaResponse>(
+      `${this.apiUrl}/ricette`,
+      input
+    );
+  }
+
+  getDettaglioRicetta(input: {
+    titolo: string;
+    ingredienti: string;
+    tipo: string;
+  }) {
+    return this.http.post<RicettaDettaglio>(
+      `${this.apiUrl}/ricette/dettaglio`,
+      input
+    );
+  }
 
 }

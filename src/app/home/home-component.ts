@@ -25,12 +25,15 @@ export class HomeComponent {
   login(): void {
     this.errorMessage.set('');
     this.hasErrorAuth.set(false);
+    this.loadingService.show();
 
     this.authService.login(this.username, this.password).subscribe({
       next: () => {
+        this.loadingService.hide();
         this.navigateToRicercaRicette();
       },
       error: () => {
+        this.loadingService.hide();
         this.errorMessage.set('Credenziali non valide');
         this.hasErrorAuth.set(true);
       }
@@ -38,12 +41,8 @@ export class HomeComponent {
   }
 
   navigateToRicercaRicette(): void {
-    this.loadingService.show();
 
-    setTimeout(() => {
       this.router.navigate(['/ricette']);
-      this.loadingService.hide();
-    }, 2000);
   }
 
 }
